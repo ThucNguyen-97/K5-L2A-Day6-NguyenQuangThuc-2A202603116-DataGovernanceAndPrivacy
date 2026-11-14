@@ -1,4 +1,4 @@
 member,git_author_name,git_email,role,modules_files,commit_shas,evidence_note,presenter
 Member 1,Nguyễn Quang Thức,nguyenquangthuc.info@gmail.com,Lead / Integrator,configs/lab.yaml; src/pipeline.py; reports/,f7bc1d7; 5f86be6; e0bac9e; 130c2ac,Pipeline implementation; config; tests; final report,Yes
 Member 2,Nguyễn Quốc Thắng,quocthang9112@gmail.com,Data & QA,src/; tests/; reports/,a79e698; 89d1159; 24c1250,QA review 20/20; review outputs; audit evidence,No
-Member 3,Đoãn Thị Phương Thảo,dthao18102004@gmail.com,Review + report,Core algorithm,,,
+Member 3,Doãn Thị Phương Thảo,dthao18102004@gmail.com,Review + report,Core algorithm,,,
