@@ -74,6 +74,17 @@ Metric report chính thức: **pending instructor GT overlay**. Không tuyên b�
 
 Review decisions được đọc lại khi chạy pipeline; các thay đổi được append vào `out/poc/audit_log.jsonl`. Pipeline có hỗ trợ override score khi reviewer cần chỉnh, nhưng reviewer không sửa score trong run cuối nên không phát sinh `override_value`; nhóm không tạo override giả và không đánh giá override riêng. Decision cuối là `HOLD` với reason code `QC_REVIEW_REQUIRED` và evidence là review queue/prediction.
 
+### 3. Failure cases thực tế
+
+Hai trường hợp được chọn từ queue T02 cho thấy sự khác nhau giữa tín hiệu tự động và quyết định của reviewer:
+
+| Ảnh | Tín hiệu pipeline | Reviewer | Nhận xét |
+|---|---|---|---|
+| `img_07_3` | Score `0.55`, reason `blur`; sharpness `4.6155` | Reject | Ảnh quá mờ, không thấy rõ vật thể. Đây là trường hợp pipeline phát hiện đúng lỗi blur. |
+| `img_11_3` | Score `0.55`, reason `blur`; sharpness `4.7961` | Approve | Vẫn nhìn thấy vật thể dù chưa rõ ràng. Đây là trường hợp borderline, reviewer giữ lại để tránh loại nhầm. |
+
+Kết luận: score và reason giúp ưu tiên ảnh cần kiểm tra, nhưng chưa đủ để tự động loại toàn bộ ảnh. Human review vẫn cần thiết cho các trường hợp mờ ở mức ranh giới.
+
 ## 07 · Reproduce & tests
 
 ```powershell
